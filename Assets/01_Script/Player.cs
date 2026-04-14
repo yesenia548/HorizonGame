@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
     {
         if (collision.transform.CompareTag("Coin"))
         {
-            audioSourse.PlayOneShot(coinClip);
+            //audioSourse.PlayOneShot(coinClip);
             Destroy(collision.gameObject);
             coins++;
             textCoins.text=coins.ToString();
