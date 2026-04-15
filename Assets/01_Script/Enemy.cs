@@ -4,37 +4,52 @@ public class Enemy : MonoBehaviour
 {
 
     public Rigidbody2D rb2D;
-    public float velocidadMovimiento;
-    void Start()
+    public float velocidadMovimientoBase;
+    public float velocidadMovimientoActual;
+    public Transform controladorFrente;
+    public float distanciaRayoFrente;
+    public LayerMask capasSuelo;
+    public bool tocandoSueloFrente;
+
+
+
+    public void Start()
     {
-        
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        rb2D.linearVelocity = new Vector2(velocidadMovimiento, rb2D.linearVelocity. y);
+        rb2D.linearVelocity = new Vector2(velocidadMovimientoActual, rb2D.linearVelocity. y);
         MirarEnDireccionDelMovimiento();
-        
+
+        tocandoSueloFrente = Physics2D.Raycast(controladorFrente.position, transform.right * -1, distanciaRayoFrente, capasSuelo);
+
     }
 
 
     public void MirarEnDireccionDelMovimiento()
     {
-        if ((velocidadMovimiento > 0 && !MirandoALaDerecha()) || (velocidadMovimiento < 0 && MirandoALaDerecha()))
+        if ((velocidadMovimientoActual > 0 && !MirandoALaDerecha()) || (velocidadMovimientoActual < 0 && MirandoALaDerecha()))
         {
             Girar();
         }
     }
     public void Girar()
     {
-        Vector3 escala = transform.localScale;
-        escala.x *= -1;
-        transform.localScale = escala;
+        Vector3 rotacion = transform.eulerAngles;
+        rotacion.y = rotacion.y == 0 ? 180 : 0;
+        transform.eulerAngles = rotacion;
     }
 
     public bool MirandoALaDerecha()
     {
-        return transform.localScale.x == -1;
+        return transform.eulerAngles.y == 100;
+    }
+
+    public void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(controladorFrente.position, controladorFrente.position + distanciaRayoFrente * transform.right * -1);
     }
 }
