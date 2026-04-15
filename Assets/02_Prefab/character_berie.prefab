@@ -141,6 +141,16 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  textCoins: {fileID: 0}
+  audioSourse: {fileID: 0}
+  coinClip: {fileID: 0}
+  barreClip: {fileID: 0}
+  attackPoint: {fileID: 0}
+  attackRange: 0.5
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  attackClip: {fileID: 0}
 --- !u!50 &7851165374309881358
 Rigidbody2D:
   serializedVersion: 5

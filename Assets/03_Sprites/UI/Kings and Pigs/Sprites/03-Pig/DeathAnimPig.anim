@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Death
+  m_Name: DeathAnimPig
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,21 +21,19 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 2405627936796476899, guid: 67a927e5a4a966c4ab2edf0b5cac33a2, type: 3}
-    - time: 0.10000014
-      value: {fileID: -7362091608478797480, guid: 67a927e5a4a966c4ab2edf0b5cac33a2, type: 3}
-    - time: 0.20000005
-      value: {fileID: -5862287138074203928, guid: 67a927e5a4a966c4ab2edf0b5cac33a2, type: 3}
-    - time: 0.29999995
-      value: {fileID: 1076454759546898761, guid: 67a927e5a4a966c4ab2edf0b5cac33a2, type: 3}
-    - time: 0.39
-      value: {fileID: 1076454759546898761, guid: 67a927e5a4a966c4ab2edf0b5cac33a2, type: 3}
+      value: {fileID: -7522094942047569111, guid: 895bec37f39003847a37c8bec0e1db2d, type: 3}
+    - time: 0.11666667
+      value: {fileID: 425510035627860162, guid: 895bec37f39003847a37c8bec0e1db2d, type: 3}
+    - time: 0.23333333
+      value: {fileID: 2332378773207366414, guid: 895bec37f39003847a37c8bec0e1db2d, type: 3}
+    - time: 0.35
+      value: {fileID: 2076103681765718411, guid: 895bec37f39003847a37c8bec0e1db2d, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
     flags: 2
-  m_SampleRate: 100
+  m_SampleRate: 60
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -52,28 +50,27 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 2405627936796476899, guid: 67a927e5a4a966c4ab2edf0b5cac33a2, type: 3}
-    - {fileID: -7362091608478797480, guid: 67a927e5a4a966c4ab2edf0b5cac33a2, type: 3}
-    - {fileID: -5862287138074203928, guid: 67a927e5a4a966c4ab2edf0b5cac33a2, type: 3}
-    - {fileID: 1076454759546898761, guid: 67a927e5a4a966c4ab2edf0b5cac33a2, type: 3}
-    - {fileID: 1076454759546898761, guid: 67a927e5a4a966c4ab2edf0b5cac33a2, type: 3}
+    - {fileID: -7522094942047569111, guid: 895bec37f39003847a37c8bec0e1db2d, type: 3}
+    - {fileID: 425510035627860162, guid: 895bec37f39003847a37c8bec0e1db2d, type: 3}
+    - {fileID: 2332378773207366414, guid: 895bec37f39003847a37c8bec0e1db2d, type: 3}
+    - {fileID: 2076103681765718411, guid: 895bec37f39003847a37c8bec0e1db2d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.39999998
+    m_StopTime: 0.36666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
     m_LoopBlendPositionXZ: 0
     m_KeepOriginalOrientation: 0
-    m_KeepOriginalPositionY: 0
+    m_KeepOriginalPositionY: 1
     m_KeepOriginalPositionXZ: 0
     m_HeightFromFeet: 0
     m_Mirror: 0

@@ -26,6 +26,11 @@ public class Player : MonoBehaviour
     public AudioClip coinClip;
     public AudioClip barreClip;
 
+    public Transform attackPoint; // Un objeto vacío frente al jugador
+    public float attackRange = 0.5f; // Qué tan lejos llega el golpe
+    public LayerMask enemyLayer; // Para que solo golpee a los enemigos
+    public AudioClip attackClip; // Sonido de espada/golpe
+
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -48,6 +53,11 @@ public class Player : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Abs(move));
         animator.SetFloat("VerticalVelocity", rb2D.linearVelocity.y);
         animator.SetBool("IsGrounded", isGrounded);
+
+        if (Input.GetKeyDown(KeyCode.Z)) // O Input.GetButtonDown("Fire1")
+        {
+            Attack();
+        }
     }
 
     private void FixedUpdate()
@@ -59,7 +69,7 @@ public class Player : MonoBehaviour
     {
         if (collision.transform.CompareTag("Coin"))
         {
-            //audioSourse.PlayOneShot(coinClip);
+            audioSourse.PlayOneShot(coinClip);
             Destroy(collision.gameObject);
             coins++;
             textCoins.text=coins.ToString();
@@ -87,5 +97,30 @@ public class Player : MonoBehaviour
             collision.GetComponent<Animator>().enabled = true;
             Destroy(collision.gameObject, 0.5f);
         }
+    }
+
+    void Attack()
+    {
+        animator.SetTrigger("Attack");
+
+        if (attackClip != null) audioSourse.PlayOneShot(attackClip);
+
+        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+
+        foreach (Collider2D hit in hitEnemies)
+        {
+            Enemy enemyScript = hit.GetComponent<Enemy>();
+
+            if (enemyScript != null)
+            {
+                enemyScript.TakeDamage(1);
+            }
+        }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null) return;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
